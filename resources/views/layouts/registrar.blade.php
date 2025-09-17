@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Information System</title>
+    <title>@yield('title','Registrar Dashboard' )</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -117,6 +117,7 @@
             font-size: 14px;
         }
 
+
         .main-content {
             width: calc(100vw - 280px);
             background: rgba(255, 255, 255, 0.95);
@@ -128,7 +129,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        /* Header */
+
         .header {
             background: white;
             padding: 20px 30px;
@@ -184,6 +185,7 @@
             color: white;
             font-weight: bold;
         }
+
 
         .dashboard-content {
             padding: 30px;
@@ -270,23 +272,7 @@
             margin-right: 8px;
         }
 
-
-        .sidebar-toggle {
-            position: absolute;
-            top: 15px;
-            right: -15px;
-            background: #3b82f6;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+        /* Toggle Button - Removed */
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -315,16 +301,6 @@
                 padding: 20px;
             }
         }
-
-          .nav-button {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
     </style>
 </head>
 <body>
@@ -351,71 +327,90 @@
                 </div>
 
                 <div class="nav-section">
-                    <div class="section-title">User Management</div>
+                    <div class="section-title">Student Management</div>
                     <div class="nav-item">
-                        <a href="{{ route('admin.registrars.create') }}" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <span>Registrars</span>
+                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Enrollment</span>
+                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
                         </a>
+                        <div class="submenu">
+                            <a href="#" class="nav-link">Add Student</a>
+                            <a href="#" class="nav-link">Edit Student</a>
+                            <a href="#" class="nav-link">Disable Student</a>
+                        </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span>Faculty / Advisers</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
                             <i class="fas fa-user-graduate"></i>
-                            <span>Students</span>
+                            <span>Student Records</span>
+                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
+                        </a>
+                        <div class="submenu">
+                            <a href="#" class="nav-link">View by Grade</a>
+                            <a href="#" class="nav-link">View by Strand</a>
+                            <a href="#" class="nav-link">View by Section</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Generate Student Profile Report</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="nav-section">
-                    <div class="section-title">Academic</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-layer-group"></i>
-                            <span>Grade Levels (JHS)</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">Grade 7</a>
-                            <a href="#" class="nav-link">Grade 8</a>
-                            <a href="#" class="nav-link">Grade 9</a>
-                            <a href="#" class="nav-link">Grade 10</a>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-code-branch"></i>
-                            <span>Strands (SHS)</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">STEM</a>
-                            <a href="#" class="nav-link">ABM</a>
-                            <a href="#" class="nav-link">HUMSS</a>
-                            <a href="#" class="nav-link">GAS</a>
-                        </div>
-                    </div>
+                    <div class="section-title">Sections & Subjects</div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-door-open"></i>
-                            <span>Sections</span>
+                            <span>View Sections</span>
                         </a>
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-book"></i>
-                            <span>Subjects</span>
+                            <span>View Subjects</span>
                         </a>
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
+                            <i class="fas fa-link"></i>
+                            <span>Assign Subjects to Sections</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
                             <i class="fas fa-calendar-alt"></i>
-                            <span>Schedules</span>
+                            <span>Schedule</span>
+                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
+                        </a>
+                        <div class="submenu">
+                            <a href="#" class="nav-link">View Full Schedule</a>
+                            <a href="#" class="nav-link">Assign Subjects to Schedule</a>
+                            <a href="#" class="nav-link">Check Conflicts</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="section-title">Faculty / Advisers</div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>View Advisers</span>
+                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
+                        </a>
+                        <div class="submenu">
+                            <a href="#" class="nav-link">JHS Advisers</a>
+                            <a href="#" class="nav-link">SHS Advisers</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Assign Advisers to Sections</span>
                         </a>
                     </div>
                 </div>
@@ -429,20 +424,21 @@
                             <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
                         </a>
                         <div class="submenu">
-                            <a href="#" class="nav-link">JHS Students</a>
-                            <a href="#" class="nav-link">SHS Students</a>
+                            <a href="#" class="nav-link">Filter by Grade</a>
+                            <a href="#" class="nav-link">Filter by Strand</a>
+                            <a href="#" class="nav-link">Filter by Section</a>
                         </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Adviser List</span>
-                        </a>
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-chart-bar"></i>
                             <span>Enrollment Report</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Adviser / Faculty List</span>
                         </a>
                     </div>
                 </div>
@@ -451,37 +447,15 @@
                     <div class="section-title">System</div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fas fa-cogs"></i>
+                            <i class="fas fa-calendar-check"></i>
                             <span>System Settings</span>
                         </a>
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fas fa-calendar-check"></i>
-                            <span>Academic Year</span>
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
                         </a>
-                    </div>
-                    <div class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-
-                           <button type="submit" class="nav-link" style="
-                                display: flex;
-                                align-items: center;
-                                padding: 12px 20px;
-                                color: rgba(255, 255, 255, 0.9);
-                                text-decoration: none;
-                                transition: all 0.3s ease;
-                                background: none;
-                                border: none;
-                                width: 100%;
-                                cursor: pointer;
-                            ">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Logout</span>
-                            </button>
-
-                        </form>
                     </div>
                 </div>
             </div>
@@ -502,16 +476,17 @@
                     <div class="user-menu">
                         <div class="user-avatar">A</div>
                         <div>
-                            <div style="font-weight: 600;">{{ $admin->name }}</div>
-                            <div style="font-size: 12px; color: #6b7280;">System Admin</div>
+                            <div style="font-weight: 600;">{{ $registrar->name }}</div>
+
                         </div>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
             </header>
 
-
+            <!-- Dashboard Content -->
             <div class="dashboard-content">
-
+                <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Total Students</h3>
@@ -521,17 +496,17 @@
                         </div>
                     </div>
                     <div class="stat-card">
-                        <h3>Faculty Members</h3>
-                        <div class="stat-value">89</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +2.1% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Active Sections</h3>
+                        <h3>Total Sections</h3>
                         <div class="stat-value">42</div>
                         <div class="stat-change">
                             <i class="fas fa-minus"></i> No change
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Advisers</h3>
+                        <div class="stat-value">89</div>
+                        <div class="stat-change">
+                            <i class="fas fa-arrow-up"></i> +2.1% from last month
                         </div>
                     </div>
                     <div class="stat-card">
@@ -549,23 +524,23 @@
                     <div class="action-grid">
                         <button class="action-btn">
                             <i class="fas fa-user-plus"></i>
-                            Add Registrar Member
+                            Enroll New Student
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-eye"></i>
+                            View Student Records
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-door-open"></i>
+                            View Sections
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-calendar-alt"></i>
+                            View Schedule
                         </button>
                         <button class="action-btn">
                             <i class="fas fa-chalkboard-teacher"></i>
-                            Add Faculty Member
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-plus-circle"></i>
-                            Create Section
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-book-open"></i>
-                            Add Subject
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-calendar-plus"></i>
-                            Create Schedule
+                            View Advisers
                         </button>
                         <button class="action-btn">
                             <i class="fas fa-file-download"></i>
@@ -578,9 +553,7 @@
     </div>
 
     <script>
-        function toggleSidebar() {
-            // Function removed since sidebar is now fixed width
-        }
+
 
         function toggleSubmenu(element) {
             const submenu = element.parentNode.querySelector('.submenu');
@@ -599,14 +572,9 @@
             }
         }
 
-        function logout() {
-            if (confirm('Are you sure you want to logout?')) {
-                alert('Logging out...');
-                // Implement logout functionality here
-            }
-        }
 
-        // Mobile responsiveness
+
+
         window.addEventListener('resize', function() {
             const sidebar = document.getElementById('sidebar');
             if (window.innerWidth <= 768) {
@@ -614,7 +582,7 @@
             }
         });
 
-        // Add active state to nav links
+
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (!this.getAttribute('onclick') || !this.getAttribute('onclick').includes('toggleSubmenu')) {

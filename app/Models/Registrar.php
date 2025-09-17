@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Registrar extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Registrar extends Authenticatable
 {
     //
 
@@ -17,6 +19,7 @@ class Registrar extends Model
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'type'
     ];
 }

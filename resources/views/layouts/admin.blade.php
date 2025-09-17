@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Information System</title>
+    <title>@yield('title', 'Admin Dashboard')</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -23,7 +23,7 @@
             min-height: 100vh;
         }
 
-
+        /* Sidebar */
         .sidebar {
             width: 280px;
             background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
@@ -117,6 +117,7 @@
             font-size: 14px;
         }
 
+        /* Main Content */
         .main-content {
             width: calc(100vw - 280px);
             background: rgba(255, 255, 255, 0.95);
@@ -185,6 +186,7 @@
             font-weight: bold;
         }
 
+        /* Dashboard Content */
         .dashboard-content {
             padding: 30px;
         }
@@ -270,7 +272,7 @@
             margin-right: 8px;
         }
 
-
+        /* Toggle Button */
         .sidebar-toggle {
             position: absolute;
             top: 15px;
@@ -315,16 +317,6 @@
                 padding: 20px;
             }
         }
-
-          .nav-button {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
     </style>
 </head>
 <body>
@@ -342,8 +334,8 @@
             <div class="nav-menu">
                 <div class="nav-section">
                     <div class="section-title">Main</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link active">
+                    <div class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                        <a href="{{ route('admin.dashboard') }}" class="nav-link ">
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
                         </a>
@@ -352,7 +344,7 @@
 
                 <div class="nav-section">
                     <div class="section-title">User Management</div>
-                    <div class="nav-item">
+                    <div class="nav-item {{ request()->routeIs('admin.registrars.create') ? 'active' : '' }}">
                         <a href="{{ route('admin.registrars.create') }}" class="nav-link">
                             <i class="fas fa-users"></i>
                             <span>Registrars</span>
@@ -476,6 +468,7 @@
                                 border: none;
                                 width: 100%;
                                 cursor: pointer;
+                                font-size: 15px;
                             ">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span>Logout</span>
@@ -493,7 +486,7 @@
             <header class="header">
                 <div class="header-left">
                     <h1>Dashboard</h1>
-                    <div class="breadcrumb">Home / Dashboard</div>
+
                 </div>
                 <div class="header-right">
                     <div class="academic-year">
@@ -509,78 +502,13 @@
                 </div>
             </header>
 
+            @yield('content')
 
-            <div class="dashboard-content">
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>Total Students</h3>
-                        <div class="stat-value">1,247</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +5.2% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Faculty Members</h3>
-                        <div class="stat-value">89</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +2.1% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Active Sections</h3>
-                        <div class="stat-value">42</div>
-                        <div class="stat-change">
-                            <i class="fas fa-minus"></i> No change
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Enrollment Rate</h3>
-                        <div class="stat-value">95.7%</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +1.8% from last year
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Quick Actions -->
-                <div class="quick-actions">
-                    <h2>Quick Actions</h2>
-                    <div class="action-grid">
-                        <button class="action-btn">
-                            <i class="fas fa-user-plus"></i>
-                            Add Registrar Member
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            Add Faculty Member
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-plus-circle"></i>
-                            Create Section
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-book-open"></i>
-                            Add Subject
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-calendar-plus"></i>
-                            Create Schedule
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-file-download"></i>
-                            Generate Reports
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
 
     <script>
-        function toggleSidebar() {
-            // Function removed since sidebar is now fixed width
-        }
+
 
         function toggleSubmenu(element) {
             const submenu = element.parentNode.querySelector('.submenu');

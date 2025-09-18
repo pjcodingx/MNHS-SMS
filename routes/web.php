@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\SectionController;
 use App\Http\Controllers\admin\SubjectController;
 use App\Http\Controllers\admin\ScheduleController;
 use App\Http\Controllers\Admin\SectionSubjectController;
+use App\Http\Controllers\Registrar\EnrollmentController;
 use App\Http\Controllers\registrar\RegistrarDashboardController;
 
 Route::get('/', function () {
@@ -88,6 +89,18 @@ Route::middleware(['faculty'])->prefix('faculty')->group( function(){
 //!REgistrar
 Route::middleware(['registrar'])->prefix('registrar')->group( function(){
     Route::get('/dashboard', [RegistrarDashboardController::class, 'dashboard'])->name('registrar.dashboard');
+
+
+    Route::get('/enrollment', [EnrollmentController::class, 'index'])->name('registrar.enrollment.index');
+   Route::get('/enrollment/create', [EnrollmentController::class, 'create'])->name('registrar.enrollment.create');
+
+    Route::post('/enrollment', [EnrollmentController::class, 'store'])->name('registrar.enrollment.store');
+
+    //!students
+    Route::get('/students', [EnrollmentController::class, 'index'])->name('registrar.students.index');
+    Route::get('/students/{student}', [EnrollmentController::class, 'show'])->name('registrar.students.show');
+
+
 });
 
 

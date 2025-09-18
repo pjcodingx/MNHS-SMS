@@ -21,9 +21,10 @@ class LoginController extends Controller
             return redirect()->intended('/admin/dashboard');
         }
 
-        if(Auth::guard('student')->attempt($credentials)){
-            return redirect()->intended('/student/dashboard');
-        }
+        //? ADD SOON IF NAA NAY STUDENT SIDE I IMPLEMENT
+        // if(Auth::guard('student')->attempt($credentials)){
+        //     return redirect()->intended('/student/dashboard');
+        // }
 
         if(Auth::guard('faculty')->attempt($credentials)){
             return redirect()->intended('/faculty/dashboard');

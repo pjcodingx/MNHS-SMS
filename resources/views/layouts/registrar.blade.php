@@ -272,9 +272,9 @@
             margin-right: 8px;
         }
 
-        /* Toggle Button - Removed */
 
-        /* Responsive */
+
+
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
@@ -319,7 +319,7 @@
                 <div class="nav-section">
                     <div class="section-title">Main</div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="{{ route('registrar.dashboard') }}" class="nav-link active">
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
                         </a>
@@ -335,22 +335,14 @@
                             <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
                         </a>
                         <div class="submenu">
-                            <a href="#" class="nav-link">Add Student</a>
-                            <a href="#" class="nav-link">Edit Student</a>
-                            <a href="#" class="nav-link">Disable Student</a>
+                            <a href="{{ route('registrar.enrollment.create') }}" class="nav-link">Add Student</a>
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
+                        <a href="{{ route('registrar.students.index') }}" class="nav-link" onclick="toggleSubmenu(this)">
                             <i class="fas fa-user-graduate"></i>
                             <span>Student Records</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
                         </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">View by Grade</a>
-                            <a href="#" class="nav-link">View by Strand</a>
-                            <a href="#" class="nav-link">View by Section</a>
-                        </div>
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">
@@ -452,10 +444,27 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
-                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+
+                           <button type="submit" class="nav-link" style="
+                                display: flex;
+                                align-items: center;
+                                padding: 12px 20px;
+                                color: rgba(255, 255, 255, 0.9);
+                                text-decoration: none;
+                                transition: all 0.3s ease;
+                                background: none;
+                                border: none;
+                                width: 100%;
+                                cursor: pointer;
+                                font-size: 15px;
+                            ">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -467,90 +476,32 @@
             <header class="header">
                 <div class="header-left">
                     <h1>Dashboard</h1>
-                    <div class="breadcrumb">Home / Dashboard</div>
+                    <div class="breadcrumb">Dashboard</div>
                 </div>
                 <div class="header-right">
                     <div class="academic-year">
                         Academic Year: 2024-2025
                     </div>
                     <div class="user-menu">
-                        <div class="user-avatar">A</div>
+                        <div class="user-avatar">R</div>
                         <div>
                             <div style="font-weight: 600;">{{ $registrar->name }}</div>
 
                         </div>
-                        <i class="fas fa-chevron-down"></i>
+
                     </div>
                 </div>
             </header>
 
-            <!-- Dashboard Content -->
-            <div class="dashboard-content">
-                <!-- Statistics Cards -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>Total Students</h3>
-                        <div class="stat-value">1,247</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +5.2% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Total Sections</h3>
-                        <div class="stat-value">42</div>
-                        <div class="stat-change">
-                            <i class="fas fa-minus"></i> No change
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Total Advisers</h3>
-                        <div class="stat-value">89</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +2.1% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Enrollment Rate</h3>
-                        <div class="stat-value">95.7%</div>
-                        <div class="stat-change">
-                            <i class="fas fa-arrow-up"></i> +1.8% from last year
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Quick Actions -->
-                <div class="quick-actions">
-                    <h2>Quick Actions</h2>
-                    <div class="action-grid">
-                        <button class="action-btn">
-                            <i class="fas fa-user-plus"></i>
-                            Enroll New Student
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-eye"></i>
-                            View Student Records
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-door-open"></i>
-                            View Sections
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-calendar-alt"></i>
-                            View Schedule
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            View Advisers
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-file-download"></i>
-                            Generate Reports
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+
+    @yield('content')
+
+
+
+
+
+
 
     <script>
 
@@ -572,9 +523,6 @@
             }
         }
 
-
-
-
         window.addEventListener('resize', function() {
             const sidebar = document.getElementById('sidebar');
             if (window.innerWidth <= 768) {
@@ -592,5 +540,6 @@
             });
         });
     </script>
-</body>
+
+
 </html>

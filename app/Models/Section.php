@@ -22,4 +22,14 @@ class Section extends Model
      public function strand() {
         return $this->belongsTo(Strand::class, 'strand_id');
     }
+
+     public function schedules()
+    {
+        return $this->hasMany(Schedule::class, 'section_id');
+    }
+
+    public function sectionSubjects()
+    {
+        return $this->hasMany(SectionSubject::class);
+    }
 }

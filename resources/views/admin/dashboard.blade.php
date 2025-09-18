@@ -401,7 +401,7 @@
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.sections.index') }}" class="nav-link">
                             <i class="fas fa-door-open"></i>
                             <span>Sections</span>
                         </a>
@@ -413,12 +413,18 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.section_subjects.index') }}" class="nav-link">
                             <i class="fas fa-calendar-alt"></i>
-                            <span>Schedules</span>
+                            <span>Assign subjects</span>
                         </a>
                     </div>
-                </div>
+
+                      <div class="nav-item">
+                        <a href="{{ route('admin.schedules.index') }}" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Assign schedules</span>
+                        </a>
+                    </div>
 
                 <div class="nav-section">
                     <div class="section-title">Reports</div>

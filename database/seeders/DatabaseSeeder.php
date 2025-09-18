@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             StudentSeeder::class,
             FacultySeeder::class,
-            RegistrarSeeder::class
+            RegistrarSeeder::class,
+            GradeLevelSeeder::class,
+            StrandSeeder::class
         ]);
     }
 }

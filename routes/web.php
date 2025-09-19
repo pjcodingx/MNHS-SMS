@@ -100,6 +100,8 @@ Route::middleware(['registrar'])->prefix('registrar')->group( function(){
     Route::get('/students', [EnrollmentController::class, 'index'])->name('registrar.students.index');
     Route::get('/students/{student}', [EnrollmentController::class, 'show'])->name('registrar.students.show');
 
+    //? for viewing
+
 
 });
 

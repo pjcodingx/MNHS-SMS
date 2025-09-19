@@ -366,25 +366,8 @@
                             <span>View Subjects</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-link"></i>
-                            <span>Assign Subjects to Sections</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Schedule</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">View Full Schedule</a>
-                            <a href="#" class="nav-link">Assign Subjects to Schedule</a>
-                            <a href="#" class="nav-link">Check Conflicts</a>
-                        </div>
-                    </div>
-                </div>
+
+
 
                 <div class="nav-section">
                     <div class="section-title">Faculty / Advisers</div>

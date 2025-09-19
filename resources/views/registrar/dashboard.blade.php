@@ -366,12 +366,7 @@
                             <span>View Subjects</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-link"></i>
-                            <span>Assign Subjects to Sections</span>
-                        </a>
-                    </div>
+
                     <div class="nav-item">
                         <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
                             <i class="fas fa-calendar-alt"></i>
@@ -499,21 +494,21 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Total Students</h3>
-                        <div class="stat-value">1,247</div>
+                        <div class="stat-value">{{ $students }}</div>
                         <div class="stat-change">
                             <i class="fas fa-arrow-up"></i> +5.2% from last month
                         </div>
                     </div>
                     <div class="stat-card">
                         <h3>Total Sections</h3>
-                        <div class="stat-value">42</div>
+                        <div class="stat-value">{{ $sections }}</div>
                         <div class="stat-change">
                             <i class="fas fa-minus"></i> No change
                         </div>
                     </div>
                     <div class="stat-card">
                         <h3>Total Advisers</h3>
-                        <div class="stat-value">89</div>
+                        <div class="stat-value">{{ $advisers }}</div>
                         <div class="stat-change">
                             <i class="fas fa-arrow-up"></i> +2.1% from last month
                         </div>

@@ -374,6 +374,34 @@
 
                 <div class="nav-section">
                     <div class="section-title">Academic</div>
+
+                    <div class="nav-item">
+                        <a href="{{ route('admin.sections.index') }}" class="nav-link">
+                            <i class="fas fa-door-open"></i>
+                            <span>Sections</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Subjects</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="{{ route('admin.section_subjects.index') }}" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Assign subjects</span>
+                        </a>
+                    </div>
+
+                      <div class="nav-item">
+                        <a href="{{ route('admin.schedules.index') }}" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Assign schedules</span>
+                        </a>
+                    </div>
+
+
                     <div class="nav-item">
                         <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
                             <i class="fas fa-layer-group"></i>
@@ -399,31 +427,6 @@
                             <a href="#" class="nav-link">HUMSS</a>
                             <a href="#" class="nav-link">GAS</a>
                         </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="{{ route('admin.sections.index') }}" class="nav-link">
-                            <i class="fas fa-door-open"></i>
-                            <span>Sections</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-book"></i>
-                            <span>Subjects</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="{{ route('admin.section_subjects.index') }}" class="nav-link">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Assign subjects</span>
-                        </a>
-                    </div>
-
-                      <div class="nav-item">
-                        <a href="{{ route('admin.schedules.index') }}" class="nav-link">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Assign schedules</span>
-                        </a>
                     </div>
 
                 <div class="nav-section">

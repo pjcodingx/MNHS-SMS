@@ -355,13 +355,13 @@
                 <div class="nav-section">
                     <div class="section-title">Sections & Subjects</div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('registrar.sections.index') }}" class="nav-link">
                             <i class="fas fa-door-open"></i>
                             <span>View Sections</span>
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('registrar.subjects.index') }}" class="nav-link">
                             <i class="fas fa-book"></i>
                             <span>View Subjects</span>
                         </a>

@@ -57,9 +57,12 @@
                 <td style="padding:10px; border-bottom:1px solid #ddd;">
                     {{ $student->section->gradeLevel->name ?? '' }} - {{ $student->section->name ?? '' }}
                 </td>
-                <td style="padding:10px; border-bottom:1px solid #ddd;">
+                <td style="padding:10px; border-bottom:1px solid #ddd; display:flex; gap:10px;">
                     <a href="{{ route('registrar.students.show', $student) }}"
-                       style="color:#3b82f6; font-weight:500;">View</a>
+                    style="color:#3b82f6; font-weight:500;">View</a>
+
+                    <a href="{{ route('registrar.students.edit', $student) }}"
+                    style="color:#10b981; font-weight:500;">Edit</a>
                 </td>
             </tr>
             @endforeach

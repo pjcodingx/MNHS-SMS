@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Section;
 use App\Models\Subject;
 use App\Models\GradeLevel;
 use Illuminate\Http\Request;
@@ -79,6 +80,37 @@ class SubjectController extends Controller
     return redirect()->route('admin.subjects.index')->with('success', 'Subject updated successfully!');
     }
 
+    public function show(Subject $subject, Request $request)
+{
+    $admin = Auth::guard('admin')->user();
 
+    // Filters
+    $gradeLevelId = $request->input('grade_level_id');
+    $sectionId = $request->input('section_id');
+
+    // Get all grade levels and sections for filters
+    $gradeLevels = GradeLevel::all();
+    $sections = Section::when($gradeLevelId, function($query) use ($gradeLevelId) {
+        $query->where('grade_level_id', $gradeLevelId);
+    })->get();
+
+    // Base query for students enrolled in this subject
+    $studentsQuery = $subject->students()->with('section.gradeLevel');
+
+    // Apply filters if provided
+    if ($gradeLevelId) {
+        $studentsQuery->whereHas('section', function($q) use ($gradeLevelId) {
+            $q->where('grade_level_id', $gradeLevelId);
+        });
+    }
+
+    if ($sectionId) {
+        $studentsQuery->where('section_id', $sectionId);
+    }
+
+    $students = $studentsQuery->paginate(10);
+
+    return view('admin.subjects.show', compact('admin', 'subject', 'students', 'gradeLevels', 'sections'));
+}
 
 }

@@ -83,4 +83,32 @@ class EnrollmentController extends Controller
                          ->with('success', 'Student enrolled successfully.');
     }
 
+
+    public function edit($id)
+        {
+            $registrar = Auth::guard('registrar')->user();
+            $student = Student::with('section.gradeLevel')->findOrFail($id);
+            $sections = Section::with('gradeLevel')->get();
+
+            return view('registrar.students.edit', compact('student', 'sections', 'registrar'));
+        }
+
+        public function update(Request $request, $id)
+        {
+            $student = Student::findOrFail($id);
+
+            $request->validate([
+                'first_name' => 'required|string|max:255',
+                'middle_initial' => 'nullable|string|max:10',
+                'last_name' => 'required|string|max:255',
+                'sex' => 'required|in:Male,Female',
+                'section_id' => 'required|exists:sections,id',
+            ]);
+
+            $student->update($request->only(['first_name', 'middle_initial', 'last_name', 'sex', 'section_id']));
+
+            return redirect()->route('registrar.students.index')->with('success', 'Student updated successfully.');
+        }
+
+
 }

@@ -39,4 +39,7 @@ class Student extends Authenticatable
             'subject_id'
         );
 }
+
+
+
 }

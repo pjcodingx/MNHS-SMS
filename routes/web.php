@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\SubjectController;
 use App\Http\Controllers\admin\ScheduleController;
 use App\Http\Controllers\Admin\SectionSubjectController;
 use App\Http\Controllers\Registrar\EnrollmentController;
+use App\Http\Controllers\registrar\RegistrarSectionController;
 use App\Http\Controllers\registrar\RegistrarDashboardController;
 
 Route::get('/', function () {
@@ -102,7 +103,17 @@ Route::middleware(['registrar'])->prefix('registrar')->group( function(){
 
     //? for viewing
 
+    Route::get('/students/{student}/edit', [EnrollmentController::class,'edit'])->name('registrar.students.edit');
+    Route::put('/students/{student}/', [EnrollmentController::class, 'update'])->name('registrar.students.update');
 
+
+      Route::get('subjects', [App\Http\Controllers\registrar\RegistrarSubjectController::class, 'index'])->name('registrar.subjects.index');
+    Route::get('subjects/{subject}', [App\Http\Controllers\registrar\RegistrarSubjectController::class, 'show'])->name('registrar.subjects.show');
+
+      Route::get('/sections', [RegistrarSectionController::class, 'index'])
+        ->name('registrar.sections.index');
+    Route::get('/sections/{section}', [RegistrarSectionController::class, 'show'])
+        ->name('registrar.sections.show');
 });
 
 

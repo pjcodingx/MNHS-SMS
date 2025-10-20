@@ -33,9 +33,9 @@ class SectionSubjectController extends Controller
 
      public function create()
     {
-         $admin = Auth::guard('admin')->user();
+        $admin = Auth::guard('admin')->user();
         $sections = Section::all();
-         $subjects = Subject::all();
+        $subjects = Subject::all();
         $advisers = Adviser::all();
         $schedules = Schedule::all();
 

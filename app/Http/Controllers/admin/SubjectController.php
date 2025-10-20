@@ -36,10 +36,22 @@ class SubjectController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:subjects,name',
-            'grade_level_id' => 'required|exists:grade_levels,id',
-        ]);
+       $request->validate([
+                'name' => 'required',
+                'grade_level_id' => 'required|exists:grade_levels,id',
+            ], [
+                'name.required' => 'Subject name is required.',
+                'grade_level_id.required' => 'Please select a grade level.',
+            ]);
+        $exists = Subject::where('name', $request->name)
+                        ->where('grade_level_id', $request->grade_level_id)
+                        ->exists();
+
+        if ($exists) {
+            return back()->withErrors(['name' => 'This subject already exists in the selected grade level.'])
+                        ->withInput();
+        }
+
 
 
     Subject::create($request->only('name', 'grade_level_id'));

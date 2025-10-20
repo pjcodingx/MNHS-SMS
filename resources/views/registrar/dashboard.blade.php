@@ -344,12 +344,7 @@
                             <span>Student Records</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Generate Student Profile Report</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
@@ -361,24 +356,13 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="#{{ route('registrar.subjects.index') }} class="nav-link">
+                        <a href="{{ route('registrar.subjects.index') }}" class="nav-link">
                             <i class="fas fa-book"></i>
                             <span>View Subjects</span>
                         </a>
                     </div>
 
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Schedule</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">View Full Schedule</a>
-                            <a href="#" class="nav-link">Assign Subjects to Schedule</a>
-                            <a href="#" class="nav-link">Check Conflicts</a>
-                        </div>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
@@ -394,12 +378,7 @@
                             <a href="#" class="nav-link">SHS Advisers</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Assign Advisers to Sections</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
@@ -422,22 +401,12 @@
                             <span>Enrollment Report</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <span>Adviser / Faculty List</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
-                    <div class="section-title">System</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-calendar-check"></i>
-                            <span>System Settings</span>
-                        </a>
-                    </div>
+                    <div class="section-title">Logout</div>
+
                     <div class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

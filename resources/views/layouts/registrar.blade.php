@@ -344,12 +344,7 @@
                             <span>Student Records</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Generate Student Profile Report</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
@@ -382,12 +377,6 @@
                             <a href="#" class="nav-link">SHS Advisers</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Assign Advisers to Sections</span>
-                        </a>
-                    </div>
                 </div>
 
                 <div class="nav-section">
@@ -410,22 +399,12 @@
                             <span>Enrollment Report</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <span>Adviser / Faculty List</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
-                    <div class="section-title">System</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-calendar-check"></i>
-                            <span>System Settings</span>
-                        </a>
-                    </div>
+                    <div class="section-title">Logout</div>
+
                     <div class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
@@ -479,12 +458,6 @@
 
 
     @yield('content')
-
-
-
-
-
-
 
     <script>
 

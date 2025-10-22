@@ -364,35 +364,11 @@
 
 
 
-                <div class="nav-section">
-                    <div class="section-title">Faculty / Advisers</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span>View Advisers</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">JHS Advisers</a>
-                            <a href="#" class="nav-link">SHS Advisers</a>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="nav-section">
                     <div class="section-title">Reports</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-list"></i>
-                            <span>Student Master List</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">Filter by Grade</a>
-                            <a href="#" class="nav-link">Filter by Strand</a>
-                            <a href="#" class="nav-link">Filter by Section</a>
-                        </div>
-                    </div>
+
                     <div class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-chart-bar"></i>

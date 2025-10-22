@@ -366,35 +366,13 @@
                 </div>
 
                 <div class="nav-section">
-                    <div class="section-title">Faculty / Advisers</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span>View Advisers</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">JHS Advisers</a>
-                            <a href="#" class="nav-link">SHS Advisers</a>
-                        </div>
-                    </div>
+
 
                 </div>
 
                 <div class="nav-section">
                     <div class="section-title">Reports</div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-list"></i>
-                            <span>Student Master List</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">Filter by Grade</a>
-                            <a href="#" class="nav-link">Filter by Strand</a>
-                            <a href="#" class="nav-link">Filter by Section</a>
-                        </div>
-                    </div>
+
                     <div class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-chart-bar"></i>
@@ -504,21 +482,19 @@
                            <a href="{{ route('registrar.students.index') }}" style="text-decoration: none; color: white;">View Student Records</a>
                         </button>
                         <button class="action-btn">
+                             <a href="{{ route('registrar.sections.index') }}" style="text-decoration: none; color: white;">
                             <i class="fas fa-door-open"></i>
                             View Sections
+                             </a>
                         </button>
                         <button class="action-btn">
-                            <i class="fas fa-calendar-alt"></i>
-                            View Schedule
+                            <a href="{{route('registrar.subjects.index')}}" style="text-decoration: none; color: white;">
+                             <i class="fas fa-book"></i>
+                            View Subjects
+                            </a>
                         </button>
-                        <button class="action-btn">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            View Advisers
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-file-download"></i>
-                            Generate Reports
-                        </button>
+
+
                     </div>
                 </div>
             </div>

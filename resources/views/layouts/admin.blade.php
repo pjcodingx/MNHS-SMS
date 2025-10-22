@@ -439,12 +439,7 @@
                             <a href="#" class="nav-link">SHS Students</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Adviser List</span>
-                        </a>
-                    </div>
+
                     <div class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-chart-bar"></i>

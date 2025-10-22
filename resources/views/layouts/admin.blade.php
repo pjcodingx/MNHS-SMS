@@ -356,12 +356,7 @@
                             <span>Faculty / Advisers</span>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-user-graduate"></i>
-                            <span>Students</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="nav-section">
@@ -394,35 +389,7 @@
                             <span>Assign schedules</span>
                         </a>
                     </div>
-
-
-
-
-                     <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-layer-group"></i>
-                            <span>Grade Levels (JHS)</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">Grade 7</a>
-                            <a href="#" class="nav-link">Grade 8</a>
-                            <a href="#" class="nav-link">Grade 9</a>
-                            <a href="#" class="nav-link">Grade 10</a>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link" onclick="toggleSubmenu(this)">
-                            <i class="fas fa-code-branch"></i>
-                            <span>Strands (SHS)</span>
-                            <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
-                        </a>
-                        <div class="submenu">
-                            <a href="#" class="nav-link">STEM</a>
-                            <a href="#" class="nav-link">ABM</a>
-                            <a href="#" class="nav-link">HUMSS</a>
-                            <a href="#" class="nav-link">GAS</a>
-                        </div>
-                    </div>
+                </div>
 
                 </div>
 
